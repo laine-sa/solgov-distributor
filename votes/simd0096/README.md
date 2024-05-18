@@ -33,3 +33,29 @@ To reproduce the merkle tree:
 ```
 
 This will generate a merkle tree which you can then compare against the one published here.
+
+## Voting
+
+Cast your vote with `spl-token transfer` to one of the following addresses:
+
+**YES**
+```bash
+YESsimd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQ
+```
+
+**NO**
+```bash
+nosimd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzssFHHQ
+```
+
+**ABSTAIN**
+```bash
+ABSTA1Nsimd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzs
+```
+
+`spl-token transfer simd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQxgq ALL <VOTE_ADDRESS>`
+
+## Tally / Results
+Use the tally.sh script in this directory to check the results at any time.
+
+`bash tally.sh`
