@@ -4,7 +4,7 @@ The SIMD can be viewed [on Github](https://github.com/solana-foundation/solana-i
 
 The stake weight gathering process takes place in epoch 616 and the voting process will begin in epoch 617 and last until epoch 620.
 
-The token distribution occurs via merkle distributor (see this repo). Validators need to claim their voting tokens using their identity account.
+The token distribution occurs via merkle distributor (see this repo). Validators need to [claim](https://github.com/laine-sa/solgov-distributor) their voting tokens using their identity account.
 
 ## Key addresses and hashes
 
@@ -35,6 +35,14 @@ To reproduce the merkle tree:
 This will generate a merkle tree which you can then compare against the one published here.
 
 ## Voting
+
+Claim your voting tokens using your validator identity account by cloning this repo and building the cli with `cargo b -r --bin cli` (you can also build and use the cli from Jito's original repository). You will need the merkle tree json file in this directory and your identity keypair file:
+
+```bash
+./target/release/cli --rpc-url https://api.mainnet-beta.solana.com --keypair-path <YOUR KEYPAIR> --airdrop-version 0 --mint simd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQxgq --program-id mERKcfxMC5SqJn4Ld4BUris3WKZZ1ojjWJ3A3J5CKxv claim --merkle-tree-path ./votes/simd0069/simd-0096-merkle-tree.json
+```
+
+You can verify your tokens are received with `spl-token balance simd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQxgq --owner <YOUR KEYPAIR>`
 
 Cast your vote with `spl-token transfer` to one of the following addresses:
 
