@@ -39,7 +39,7 @@ This will generate a merkle tree which you can then compare against the one publ
 Claim your voting tokens using your validator identity account by cloning this repo and building the cli with `cargo b -r --bin cli` (you can also build and use the cli from Jito's original repository). You will need the merkle tree json file in this directory and your identity keypair file:
 
 ```bash
-./target/release/cli --rpc-url https://api.mainnet-beta.solana.com --keypair-path <YOUR KEYPAIR> --airdrop-version 0 --mint simd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQxgq --program-id mERKcfxMC5SqJn4Ld4BUris3WKZZ1ojjWJ3A3J5CKxv claim --merkle-tree-path ./votes/simd0069/simd-0096-merkle-tree.json
+./target/release/cli --rpc-url https://api.mainnet-beta.solana.com --keypair-path <YOUR KEYPAIR> --airdrop-version 0 --mint simd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQxgq --program-id mERKcfxMC5SqJn4Ld4BUris3WKZZ1ojjWJ3A3J5CKxv claim --merkle-tree-path ./votes/simd0096/simd-0096-merkle-tree.json
 ```
 
 You can verify your tokens are received with `spl-token balance simd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQxgq --owner <YOUR KEYPAIR>`
