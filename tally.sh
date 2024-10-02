@@ -2,10 +2,13 @@
 export LC_NUMERIC="en_US.UTF-8"
 RPC_URL="https://api.mainnet-beta.solana.com"
 
-MINT="simd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzsFHHQxgq"
-YES_ACCT="7CrAvWEASABRgakuK9M8DkTK7wJieMurf59eWaFzX7P9"
-NO_ACCT="5BE5U1eZfoeWTerBp9mBBqE2WHnscdWey4sceEM1ojRu"
-ABSTAIN_ACCT="ARjw39v3Y6QWK7WaWdTEKqiFDym1S2gTmXykbWRDFUx4"
+if [[ -z $1 ]]; then
+  echo "Usage:"
+  echo "  ./tally.sh <SIMD-DIRECTORY>"
+  echo "  example: ./tally.sh votes/simd0096"
+  exit 1
+fi
+source "$1/values.env"
 
 function fetch_vote_token_balance() {
         if ! curl -s $RPC_URL -X POST -H "Content-Type: application/json" -d \
