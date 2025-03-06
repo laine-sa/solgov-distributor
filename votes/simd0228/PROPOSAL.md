@@ -49,6 +49,7 @@ Validator returns: v(s) = i/s + MEV
 r is the current emissions curve that automatically goes down every epoch at an annualized rate of 15% every year until it reaches 1.5% where it stops changing.
 The suggested new formula and curve is:
 ![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/new%20formula.png?raw=true)
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/new%20issuance%20rate.png?raw=true)
 
 When s > .5 the curve corresponds to just the first term: r(1 - sqrt(s)). This was the curve in the previous version of the SIMD. Based on community feedback, we have added the cmax(1-sqrt(2s),0) term to make the curve more aggressive when a smaller fraction of the network is staked. c is chosen such that the curve starts becoming more aggressive at s =.5, when half of the supply is staked, and surpasses the current static emission schedule of r when s = 1/3.
 
@@ -56,15 +57,14 @@ The derivation of c is provided in the appendix.
 
 This yields a vote reward rate for validators with good performance of:
 
-staking yield
-staking yield
-1044×166 11.1 KB
-staking returns over time
-staking returns over time
-1376×812 62.1 KB
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/staking%20yield.png?raw=true)
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/staking%20returns%20over%20time.png?raw=true)
+
 To ensure that the transition from the old static issuance schedule to this new schedule is smooth, we will interpolate between the old issuance rate and the new issuance rate over 50 epochs using the formula:
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/new%20phase-in%20formula.png?raw=true)
 
 where “alpha” is a parameter that controls the speed of the transition, taking the values 1/50, 2/50, …, 49/50, 1, over the first 50 epochs before settling to the new issuance rate at = 1.
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/issuance%20rate%20during%20rollout.png?raw=true)
 
 # Alternatives Considered
 
