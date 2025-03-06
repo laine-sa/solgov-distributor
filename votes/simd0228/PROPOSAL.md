@@ -58,13 +58,13 @@ The derivation of c is provided in the appendix.
 This yields a vote reward rate for validators with good performance of:
 
 ![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/staking%20yield.png?raw=true)
-![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/staking%20returns%20over%20time.png?raw=true)
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/staking%20returns%20over%20time.jpg?raw=true)
 
 To ensure that the transition from the old static issuance schedule to this new schedule is smooth, we will interpolate between the old issuance rate and the new issuance rate over 50 epochs using the formula:
 ![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/new%20phase-in%20formula.png?raw=true)
 
 where “alpha” is a parameter that controls the speed of the transition, taking the values 1/50, 2/50, …, 49/50, 1, over the first 50 epochs before settling to the new issuance rate at = 1.
-![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/issuance%20rate%20during%20rollout.png?raw=true)
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/issuance%20rate%20during%20rollout.jpg?raw=true)
 
 # Alternatives Considered
 
