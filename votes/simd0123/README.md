@@ -25,7 +25,7 @@ and a random (unfunded) keypair: `solana-keygen new --outfile random.json`
 spl-feature-proposal propose random.json
 ```
 
-This creates a CSV file in your current directory called feature-proposal.csv. You can compare the shasum, but the order of recipients may differ in which case you need to first sort (note that sort behaves different on different machines so sort both files on the same machine):
+This creates a CSV file in your current directory called feature-proposal.csv. You can compare the shasum, but the order of recipients may differ in which case you need to first sort (note that sort behaves different on different machines so sort both files on the same machine, the hash once sorted will not match the one shown above, the important thing here is that the hashes of the two files match each other):
 
 ```bash
 cat feature-proposal.csv | sort | sha256sum
