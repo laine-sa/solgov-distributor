@@ -2,6 +2,8 @@
 
 The SIMD can be viewed [on Github](https://github.com/solana-foundation/solana-improvement-documents/blob/0131156ec2a189d2a570bb23631bf00c899d9dcf/proposals/0123-block-fee-distribution.md) and a governance [forum proposal](https://forum.solana.com/t/proposal-for-an-in-protocol-distribution-of-block-rewards-to-stakers/3295) has been posted.
 
+The forum proposal text is also recorded [in this repository](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0123/PROPOSAL.md) for posterity.
+
 The stake weight gathering process takes place in epoch 752 and the voting process will begin in epoch 753 and last until epoch 755.
 
 The token distribution occurs via merkle distributor (see this repo). Validators need to [claim](https://github.com/laine-sa/solgov-distributor) their voting tokens using their identity account.
