@@ -48,7 +48,7 @@ Issuance Rate (i)
 Validator returns: v(s) = i/s + MEV
 r is the current emissions curve that automatically goes down every epoch at an annualized rate of 15% every year until it reaches 1.5% where it stops changing.
 The suggested new formula and curve is:
-![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/new-formula.png?raw=true)
+![New curve](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0228/new%20formula.png?raw=true)
 
 When s > .5 the curve corresponds to just the first term: r(1 - sqrt(s)). This was the curve in the previous version of the SIMD. Based on community feedback, we have added the cmax(1-sqrt(2s),0) term to make the curve more aggressive when a smaller fraction of the network is staked. c is chosen such that the curve starts becoming more aggressive at s =.5, when half of the supply is staked, and surpasses the current static emission schedule of r when s = 1/3.
 
