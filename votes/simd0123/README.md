@@ -68,7 +68,7 @@ Cast your vote with `spl-token transfer` to one of the following vote addresses:
 
 **YES**
 ```bash
-YESsimd1231111111111111111111111111111111111
+YESsimd123111111111111111111111111111111111
 ```
 
 **NO**
