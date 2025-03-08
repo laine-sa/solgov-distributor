@@ -1,4 +1,4 @@
-# Solana Governance token distribute
+# Solana Governance token distributor
 
 This repository is forked from Jito's [Merkle Distributor](https://github.com/jito-foundation/distributor) and intended to be used for the distribution of vote-specific tokens for validator governance.
 
