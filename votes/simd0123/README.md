@@ -83,6 +83,8 @@ ABSTA1Nsimd12311111111111111111111111111111
 
 `spl-token transfer s1233un3oMnNWo4EuKsEjtV7QtXfimhybHMQP7GLPwM ALL <VOTE_ADDRESS>`
 
+You can add an optional note with a comment or motivation for your vote by adding `--with-memo "Comment"`
+
 ## Tally / Results
 Use the tally.sh script in this directory to check the results at any time.
 

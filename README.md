@@ -39,10 +39,10 @@ To claim via CLI
 cargo b -r
 ```
 
-2. Run `claim` with the proper args. Be sure to replace `<YOUR KEYPAIR>` with the _full path_ of your identity keypair file. This will transfer tokens to a the associated token account owned by your keypair, creating it if it doesn't exist.
+2. Run `claim` with the proper args. Be sure to replace `<YOUR KEYPAIR>` with the _full path_ of your identity keypair file and `<SIMD>` with the SIMD number as well as in the file name of the merkle tree json file. This will transfer tokens to a the associated token account owned by your keypair, creating it if it doesn't exist.
 
 ```bash
-./target/release/cli --rpc-url https://api.mainnet-beta.solana.com --keypair-path <YOUR KEYPAIR> --airdrop-version 0 --mint <VOTE_MINT> --program-id mERKcfxMC5SqJn4Ld4BUris3WKZZ1ojjWJ3A3J5CKxv claim --merkle-tree-path ./votes/<SIMD>/merkle_tree.json
+./target/release/cli --rpc-url https://api.mainnet-beta.solana.com --keypair-path <YOUR KEYPAIR> --airdrop-version 0 --mint <VOTE_MINT> --program-id mERKcfxMC5SqJn4Ld4BUris3WKZZ1ojjWJ3A3J5CKxv claim --merkle-tree-path ./votes/<SIMD>/simdXXX-merkle-tree.json
 ```
 
 ## Casting a vote
