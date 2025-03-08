@@ -56,6 +56,8 @@ Cast your vote:
 spl-token transfer <VOTE_MINT> ALL <VOTE_CHOICE_ADDRESS> --owner <VALIDATOR_IDENTITY.JSON>
 ```
 
+You can add an optional note with a comment or motivation for your vote by adding `--with-memo "Comment"`
+
 ## Troubleshooting
 If you have the incorrect version of Rust you can use `rustup` to set the default toolchain `rustup defautl 1.68.0`.
 
