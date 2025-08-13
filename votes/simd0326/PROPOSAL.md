@@ -82,7 +82,7 @@ Epoch 833–838: Discussion period
 
 Epoch 839: Stake weights captured and published, discussion/confirmation of stake weights
 
-Epochs 840–841: Voting tokens available to claim, voting completes at the end of epoch 841
+Epochs 840–842: Voting tokens available to claim, voting completes at the end of epoch 841
 
 
 ## Discussion 
