@@ -42,14 +42,14 @@ Verify the merkle tree has a hash of `TBD`
 sha256sum simd326-merkle-tree.json
 ```
 
-The vote token mint address is `TBD`
+The vote token mint address is `s3262ckXrLnzPXG8RScfFAYWDQzZYgnr4vo1R2SboMW`
 
 The total supply will be `TBD` with TBD participating validators.
 
 To reproduce the merkle tree:
 
 ```bash
-./target/release/cli --keypair-path /any/funded/keypair.json --rpc-url https://api.mainnet-beta.solana.com --mint TBD create-merkle-tree --csv-path ./votes/simd0326/simd326-proposal.csv --merkle-tree-path simd-0326-merkle-tree-to-verify.json
+./target/release/cli --keypair-path /any/funded/keypair.json --rpc-url https://api.mainnet-beta.solana.com --mint s3262ckXrLnzPXG8RScfFAYWDQzZYgnr4vo1R2SboMW create-merkle-tree --csv-path ./votes/simd0326/simd326-proposal.csv --merkle-tree-path simd-0326-merkle-tree-to-verify.json
 ```
 
 This will generate a merkle tree which you can then compare against the one published here.
@@ -59,10 +59,10 @@ This will generate a merkle tree which you can then compare against the one publ
 Claim your voting tokens using your validator identity account by cloning this repo and building the cli with `cargo b -r --bin cli` (you can also build and use the cli from Jito's original repository). You will need the merkle tree json file in this directory and your identity keypair file:
 
 ```bash
-./target/release/cli --rpc-url https://api.mainnet-beta.solana.com --keypair-path <YOUR KEYPAIR> --airdrop-version 0 --mint TBD --program-id mERKcfxMC5SqJn4Ld4BUris3WKZZ1ojjWJ3A3J5CKxv claim --merkle-tree-path ./votes/simd0326/simd326-merkle-tree.json
+./target/release/cli --rpc-url https://api.mainnet-beta.solana.com --keypair-path <YOUR KEYPAIR> --airdrop-version 0 --mint s3262ckXrLnzPXG8RScfFAYWDQzZYgnr4vo1R2SboMW --program-id mERKcfxMC5SqJn4Ld4BUris3WKZZ1ojjWJ3A3J5CKxv claim --merkle-tree-path ./votes/simd0326/simd326-merkle-tree.json
 ```
 
-You can verify your tokens are received with `spl-token balance TBD --owner <YOUR KEYPAIR>`
+You can verify your tokens are received with `spl-token balance s3262ckXrLnzPXG8RScfFAYWDQzZYgnr4vo1R2SboMW --owner <YOUR KEYPAIR>`
 
 Cast your vote with `spl-token transfer` to one of the following vote addresses:
 
@@ -81,7 +81,7 @@ nosimd3261111111111111111111111111111111111
 ABSTA1Nsimd32611111111111111111111111111111
 ```
 
-`spl-token transfer TBD ALL <VOTE_ADDRESS>`
+`spl-token transfer s3262ckXrLnzPXG8RScfFAYWDQzZYgnr4vo1R2SboMW ALL <VOTE_ADDRESS>`
 
 You can add an optional note with a comment or motivation for your vote by adding `--with-memo "Comment"`
 
