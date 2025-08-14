@@ -1,6 +1,6 @@
 # SIMD-0326 Proposal for the New Alpenglow Consensus Protocol
 
-The SIMD can be viewed [on Github](https://github.com/solana-foundation/solana-improvement-documents/pull/326/files) and a governance [forum proposal](https://forum.solana.com) has been posted.
+The SIMD can be viewed [on Github](https://github.com/solana-foundation/solana-improvement-documents/pull/326/files) and a governance [forum proposal](https://forum.solana.com/t/simd-0326-proposal-for-the-new-alpenglow-consensus-protocol/4236) has been posted.
 
 The forum proposal text is also recorded [in this repository](https://github.com/laine-sa/solgov-distributor/blob/master/votes/simd0326/PROPOSAL.md) for posterity.
 
