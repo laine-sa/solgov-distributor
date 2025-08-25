@@ -12,7 +12,7 @@ The token distribution occurs via merkle distributor (see this repo). Validators
 
 ### File hashes
 
-Verify the `simd326-proposal.csv` file has a hash of `TBD`
+Verify the `simd326-proposal.csv` file has a hash of `6eb0f7e847a5a48f9886c2141e3dea1ee400893b795aff03705bb755a15e2d25`
 
 ```bash
 sha256sum simd326-proposal.csv
@@ -34,9 +34,12 @@ cat feature-proposal.csv | sort | sha256sum
 cat simd326-proposal.csv | sort | sha256sum
 ```
 
-You can also use the `check_stake_weights.sh` scripts in the /votes directory of this repository. Note you can only use this during epoch 839 as the on-chain stake weights will have changed after that, and that this script uses `jq` which has a rounding error.
+You can also use the `check_stake_weights.sh` scripts in the /votes directory of this repository. Note you can only use this during epoch 839 as the on-chain stake weights will have changed after that, and that this script uses `jq` which has a rounding error for validators with stake > 9m.
 
-Verify the merkle tree has a hash of `TBD`
+[!NOTE]
+The script to verify stake weights uses `jq` which [uses IEE754 double](https://github.com/jqlang/jq/issues/369#issuecomment-43842711) which have a max safe representable value of 2^53 which is approximately 9m SOL. AS a result some of the largest validators on the Solana network may experience minor rounding during the verification in the script and you may see a few entries where there is a 1 lamport discrepancy for validators, e.g. `5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm`, `HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU` and `DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy` (Binance, Helius & Kiln). This error is in the checking script which uses `jq`, the actual number in the CSV file is the correct value.  You may also see `FttTBmXi5tmGJtiRcbVLwfMnY3ngrxw8DNSWRWMrr1WS` with a value of 0, this is because this validator has changed their vote account causing the script to use the wrong value to compare, you can verify the file contains a value of `10000001000000` with `cat votes/simd326-proposal.csv | grep FttTBmXi5tmGJtiRcbVLwfMnY3ngrxw8DNSWRWMrr1WS` and compare this value to `solana validators | grep FttTBmXi5tmGJtiRcbVLwfMnY3ngrxw8DNSWRWMrr1WS` you will see a second vote account with a matching amount of stake.
+
+Verify the merkle tree has a hash of `9849052712c231da2f2e82b34f50b493b7cefb460d6bc0b1843894c1a5650f8f`
 
 ```bash
 sha256sum simd326-merkle-tree.json
@@ -44,7 +47,7 @@ sha256sum simd326-merkle-tree.json
 
 The vote token mint address is `s3262ckXrLnzPXG8RScfFAYWDQzZYgnr4vo1R2SboMW`
 
-The total supply will be `TBD` with TBD participating validators.
+The total supply will be `404602234866150665` with 1071 participating validators.
 
 To reproduce the merkle tree:
 
