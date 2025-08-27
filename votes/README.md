@@ -61,7 +61,7 @@ Once this transaction is processed look up the transaction in your preferred exp
 When ready (after voting epoch begins, preferably) transfer the tokens to the vault:
 
 ```bash
-spl-token transfer <TOKEN_MINT> ALL <VAULT_PUBKEY>
+spl-token transfer <TOKEN_MINT> ALL <VAULT_PUBKEY> --allow-unfunded-recipient --fund-recipient
 ```
 
 > [!NOTE]
