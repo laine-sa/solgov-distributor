@@ -66,3 +66,7 @@ spl-token transfer <TOKEN_MINT> ALL <VAULT_PUBKEY> --allow-unfunded-recipient --
 
 > [!NOTE]
 > You can complete most of these steps on devnet to test and verify. Even before creating the distributor you can transfer test tokens on devnet to the vote destination accounts in order to find the ATA addresses to plug into the values.env file for the respective vote.
+
+## Account seeding
+
+Optional, to create ATAs and avoid the need for users to pass `--allow-unfunded-recipient` and/or `--fund-recipient` flags you can transfer 1 vote token from your own allocation to each of the recipient addresses, as well as a small amount of SOL (e.g. 0.0001 SOL).
