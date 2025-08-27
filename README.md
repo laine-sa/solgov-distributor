@@ -18,7 +18,8 @@ Usage:
 bash ./votes/check_stake_weights.sh [OPTIONAL_RPC_ADDRESS] ./votes/simdXXXX/feature-proposal.csv
 ```
 
-**NOTE:** Unfortunately `jq` behaves unexpectedly with some large numbers which will result in it showing a diff when there isn't one, usually of 1 lamport. If this occurs you can manually check that recipient in the CSV file against their stake from an RPC node using getVoteAccounts RPC call. Additionally occasionally validators abandon their vote account and operate a new one with the same identity key, the CSV file combines the active stake of both into a single row, while the RPC returns them individually, this can result in a diff, the sum of the two rows from the RPC should match the CSV file and the validator will receive the correct combined vote tokens representing their active stake across both vote accounts.
+> [!NOTE] 
+>Unfortunately `jq` behaves unexpectedly with some large numbers which will result in it showing a diff when there isn't one, usually of 1 lamport. If this occurs you can manually check that recipient in the CSV file against their stake from an RPC node using getVoteAccounts RPC call. Additionally occasionally validators abandon their vote account and operate a new one with the same identity key, the CSV file combines the active stake of both into a single row, while the RPC returns them individually, this can result in a diff, the sum of the two rows from the RPC should match the CSV file and the validator will receive the correct combined vote tokens representing their active stake across both vote accounts.
 
 ## Claiming voting tokens via CLI
 
