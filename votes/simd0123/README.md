@@ -88,4 +88,4 @@ You can add an optional note with a comment or motivation for your vote by addin
 ## Tally / Results
 Use the tally.sh script in this directory to check the results at any time.
 
-`bash tally.sh`
+`./tally.sh votes/simdXXXX`
