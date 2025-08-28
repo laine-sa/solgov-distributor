@@ -1,7 +1,7 @@
 extern crate jito_merkle_tree;
 extern crate merkle_distributor;
 
-use std::path::PathBuf;
+use std::{path::PathBuf, str::FromStr};
 
 use anchor_lang::{prelude::Pubkey, AccountDeserialize, InstructionData, Key, ToAccountMetas};
 use anchor_spl::token;
@@ -144,8 +144,15 @@ fn main() {
 }
 
 fn process_new_claim(args: &Args, claim_args: &ClaimArgs) {
-    let keypair = read_keypair_file(&args.keypair_path).expect("Failed reading keypair file");
-    let claimant = keypair.pubkey();
+    // Keypair path can either be a full keypair, or just a public key, in which case it's the claimant
+    let (claimant, keypair) = match Pubkey::from_str(&args.keypair_path.to_string_lossy()) {
+        Ok(pubkey) => (pubkey, None),
+        Err(_) => {
+            let keypair = read_keypair_file(&args.keypair_path).expect("Failed reading keypair file");
+            (keypair.pubkey(), Some(keypair))
+        }
+    };
+
     let priority_fee = args.priority.unwrap_or(0);
 
     println!("Claiming tokens for user {}...", claimant);
@@ -215,19 +222,33 @@ fn process_new_claim(args: &Args, claim_args: &ClaimArgs) {
         println!("No priority fee added. Add one with --priority <microlamports u64>");
     }
 
-    let blockhash = client.get_latest_blockhash().unwrap();
-    let tx =
-        Transaction::new_signed_with_payer(&ixs, Some(&claimant.key()), &[&keypair], blockhash);
+    if let Some(keypair) = keypair {
+        let blockhash = client.get_latest_blockhash().unwrap();
+        let tx =
+            Transaction::new_signed_with_payer(&ixs, Some(&claimant.key()), &[&keypair], blockhash);
 
-    let signature = client
-        .send_and_confirm_transaction_with_spinner(&tx)
-        .unwrap();
-    println!("successfully created new claim with signature {signature:#?}");
+        let signature = client
+            .send_and_confirm_transaction_with_spinner(&tx)
+            .unwrap();
+        println!("successfully created new claim with signature {signature:#?}");
+    } else {
+        // Don't send transaction, only print it for use with another tx-sender
+        let msg = solana_sdk::message::Message::new(&ixs, Some(&claimant.key()));
+        let msg_b58: String = solana_sdk::bs58::encode(msg.serialize()).into_string();
+        println!("Base58 encoded Transaction: {}", msg_b58);
+    }
+
 }
 
 fn process_claim(args: &Args, claim_args: &ClaimArgs) {
-    let keypair = read_keypair_file(&args.keypair_path).expect("Failed reading keypair file");
-    let claimant = keypair.pubkey();
+    // Keypair path can either be a full keypair, or just a public key, in which case it's the claimant
+    let (claimant, keypair) = match Pubkey::from_str(&args.keypair_path.to_string_lossy()) {
+        Ok(pubkey) => (pubkey, None),
+        Err(_) => {
+            let keypair = read_keypair_file(&args.keypair_path).expect("Failed reading keypair file");
+            (keypair.pubkey(), Some(keypair))
+        }
+    };
 
     let (distributor, bump) =
         get_merkle_distributor_pda(&args.program_id, &args.mint, args.airdrop_version);
