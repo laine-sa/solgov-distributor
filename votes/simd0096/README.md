@@ -66,4 +66,4 @@ ABSTA1Nsimd96Cuw3M5TYAkZ1d71ug4bvVHiqHhhJzs
 ## Tally / Results
 Use the tally.sh script in this directory to check the results at any time.
 
-`bash tally.sh`
+`./tally.sh votes/simdXXXX`
